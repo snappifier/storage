@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "db:up": "docker compose up -d db && npx drizzle-kit push",
+    "dev:full": "npm run db:up && npm run dev",
+    "db:reset": "docker compose down -v && npm run db:up",
     "build": "next build",
     "start": "next start",
     "test": "vitest",
